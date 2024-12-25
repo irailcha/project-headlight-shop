@@ -1,0 +1,16 @@
+@use '../../styles/variables.scss' as *;
+
+.header{
+  padding: 20px 0;
+  background-color: $black-color;
+  
+  &__menu{
+    display: flex;
+    gap: 15px; 
+    justify-content: space-evenly;
+    color: $white-color;
+    text-transform: uppercase;
+  }
+  
+  
+  }

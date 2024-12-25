@@ -1,0 +1,46 @@
+@use '../../styles/variables.scss' as *;
+
+.main{
+background-image: url('../../assets/images/main-poster.jpg');
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+  width: 100%;
+  height: 500px;
+
+
+  &__title {
+    font-size: 36px; 
+    color: $white-color; 
+    margin: 0 0 10px 0;
+
+    span{
+      font-size: 72px;
+    }
+  }
+
+  &__description {
+    font-size: 18px; 
+    color: $white-color;
+    margin: 0 0 40px 0; 
+  }
+
+&__button{
+  background-color: $white-color;
+  border: none;
+  border-radius: 50px;
+  color: $black-color;
+  padding:10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  
+  &:hover{
+    background-color: $second-white-color;
+    color: $black-color;
+  }
+  
+  cursor: pointer;
+}
+}

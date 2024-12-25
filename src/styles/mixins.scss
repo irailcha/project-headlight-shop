@@ -1,0 +1,103 @@
+@import './variables';
+
+@mixin xsm {
+  @media (max-width: 370px) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (max-width: 576px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media (max-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin adaptiveValuePx(
+  $property,
+  $startSize,
+  $minSize,
+  $keepSize: 0,
+  $widthFrom: $containerWidth,
+  $widthTo: $minWidth
+) {
+  @if ($startSize == 0) {
+    $startSize: 0.000001;
+  }
+  @if ($minSize == 0) {
+    $minSize: 0.000001;
+  }
+
+  // Для calc();
+  $addSize: $startSize - $minSize;
+
+  // Брейк-поїнти в пікселях
+  $widthFromMedia: $widthFrom + px;
+  $widthToMedia: $widthTo + px;
+
+  // Формула плаваючого значення
+  $slope: ($startSize - $minSize) / ($widthFrom - $widthTo);
+  $yIntersection: -$widthTo * $slope + $minSize;
+  @if ($yIntersection == 0) {
+    $yIntersection: 0.000001;
+  }
+  $flyValue: #{$yIntersection}px + ' ' + #{$slope * 100}vw;
+
+  // Отримання значення властивості
+  $propertyValue: #{'clamp(' $minSize + px ',' $flyValue ',' $startSize + px ')'};
+
+  // Якщо негативні значення
+  @if ($minSize > $startSize) {
+    $propertyValue: #{'clamp(' $startSize + px ',' $flyValue ',' $minSize + px ')'};
+  }
+
+  // Встановлюємо значення за замовчуванням
+  @if $keepSize != 1 and $keepSize != 3 {
+    @media (min-width: $widthFromMedia) {
+      #{$property}: $startSize + px;
+    }
+  }
+
+  // Адаптуємо розмір у проміжку між зазначеними ширинами в'юпорту
+  @media (min-width: $widthToMedia) and (max-width: $widthFromMedia) {
+    // Якщо підтримується clamp();
+    @supports (#{$property}: $propertyValue) {
+      #{$property}: $propertyValue;
+    }
+    // Якщо не підтримується clamp();
+    @supports not (#{$property}: $propertyValue) {
+      #{$property}: calc(
+        #{$minSize}px + #{$addSize} * (100vw - #{$widthTo}px) / #{$widthFrom - $widthTo}
+      );
+    }
+  }
+
+  @if $keepSize != 1 and $keepSize != 2 {
+    @media (max-width: $widthToMedia) {
+      #{$property}: $minSize + px;
+    }
+  }
+}
