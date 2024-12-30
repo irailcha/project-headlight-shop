@@ -8,7 +8,7 @@ const MainPoster=()=>{
   return (
     <div className="main">
       <section className="section">
-      <h1 className="main__title"><span>Автофара</span> <br/> Фари, що ведуть вас вперед</h1>
+      <h1 className="main__title"><span>AvtoGalogen</span> <br/> Фари, що ведуть вас вперед</h1>
       <p className="main__description">Якісні б/у фари за доступними цінами</p>
   <Link to="/store" className="main__button">Перейти до магазину</Link>
   </section>

@@ -1,4 +1,4 @@
-@import './variables';
+@use './variables';
 
 @mixin xsm {
   @media (max-width: 370px) {

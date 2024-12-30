@@ -1,0 +1,118 @@
+@use '../../styles/variables.scss' as *;
+@use '../../styles/mixins.scss' as *;
+
+.info {
+  background-color: $grey-color;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 30px 60px;
+  gap: 50px;
+
+  &__first-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 30px;
+
+    &__thumb-img {
+      width: 700px;
+      height: 520px;
+      background-color: $black-color;
+      border-radius: 12px;
+      box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.7);
+    }
+
+    &__main-img {
+      border-radius: 12px;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__second-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-around;
+
+
+    &-title{
+      font-weight: bold;
+    }
+
+    &-price{
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+  }
+
+  &__buttons{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+    &-order{
+      background-color: $background-color;
+      color: $white-color;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+      &:hover {
+        background-color:$black-color;
+      }
+      @include md {
+        font-size: 12px;
+        padding: 8px 14px;
+      }
+    }
+    &-ask{
+      background-color: transparent;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+       text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .info {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 20px;
+  }
+
+  .info__first-section {
+    gap: 20px;
+  }
+
+  .info__second-section {
+    align-items: center;
+    text-align: center;
+
+    h2, h3, p {
+      text-align: center;
+    }
+
+    &__button {
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}

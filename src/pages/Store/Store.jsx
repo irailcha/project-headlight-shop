@@ -1,14 +1,20 @@
 import React from "react";
+import Headlights from "../../components/Headlights/HeadLights";
+import SearchForm from "../../components/SearchForm/SearchForm";
+import SortingForm from "../../components/SortingForm/SortingForm";
+import './Store.scss';
 
-
-const Store=()=>{
-
-  return(
-    <div>
-      <h1>Welcome to the Store</h1>
-      <p>This is a sample shop page.</p>
-    </div>
-  )
-}
+const Store = () => {
+ 
+  return (
+    <section>
+  <div className="store__block">
+<SearchForm/>
+<SortingForm/>
+</div>
+   <Headlights/>
+    </section>
+  );
+};
 
 export default Store;
