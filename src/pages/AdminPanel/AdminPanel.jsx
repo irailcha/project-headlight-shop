@@ -10,12 +10,13 @@ const AdminPanel=()=>{
   return(
     <section>
       <div className="admin">
-     <h1>Welcome to the Admin Panel</h1>
-     <ul className="admin_list">
+     <ul className="admin__list">
+      <li>
 <NavLink to='addAdvert'>Додати оголошення</NavLink>
-     </ul>
-     <ul>
+</li>
+<li>
 <NavLink to="headlightslist">Управління оголошеннями</NavLink>
+</li>
      </ul>
 
 

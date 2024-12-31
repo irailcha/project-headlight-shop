@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { getOneAdvert } from '../../redux/adverts-redux/operations';
 import { useParams } from 'react-router-dom';
-import { useAdvert } from '../../redux/adverts-redux/selectors';
+import { selectAdvert } from '../../redux/adverts-redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import './InfoHeadlight.scss';
 import SimpleLightBox from '../SimpleLighBox/SimpleLightBox';
@@ -10,7 +10,7 @@ import Loader from '../Loader/Loader';
 const InfoHeadlight = () => {
   const dispatch = useDispatch();
   const { advertId } = useParams();
-  const advert = useSelector(useAdvert);
+  const advert = useSelector(selectAdvert);
 
   useEffect(() => {
     dispatch(getOneAdvert(advertId));

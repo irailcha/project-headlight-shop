@@ -1,8 +1,9 @@
 .admin{
   display: block;
+
+
   &__list{
     display: flex;
-    flex-direction: row;
     gap: 20px;
   }
 }

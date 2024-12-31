@@ -1,20 +1,25 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAdverts, useLoading, useError } from '../../redux/adverts-redux/selectors';
+import { selectAdverts, selectLoading, selectError } from '../../redux/adverts-redux/selectors';
 import { fetchAdverts } from '../../redux/adverts-redux/operations';
 import "./Headlights.scss";
 import { Link } from "react-router-dom";
 import Loader from '../Loader/Loader';
 
-const Headlights = () => {
+const Headlights = ({query}) => {
   const dispatch = useDispatch();
-  const adverts = useSelector(getAdverts);
-  const isLoading = useSelector(useLoading);
-  const error = useSelector(useError);
+  const adverts = useSelector(selectAdverts);
+  const isLoading = useSelector(selectLoading);
+  const error = useSelector(selectError);
+
 
   useEffect(() => {
     dispatch(fetchAdverts());
   }, [dispatch]);
+
+const filteredAdverts = adverts.filter((advert)=> advert.compatibility.toLowerCase().includes(query.toLowerCase()) || advert.partNumber.toLowerCase().includes(query.toLowerCase()))
+
+
 
   if (isLoading) {
     return <Loader />;
@@ -27,7 +32,7 @@ const Headlights = () => {
         <p>Оголошень немає.</p>
       ) : (
         <ul className="headlights__list">
-          {adverts.map((advert) => (
+          {filteredAdverts.map((advert) => (
             <li className="headlights__item" key={advert._id}>
               <div className="headlights__img-thumb">
                 <img className="headlights__img" 

@@ -3,6 +3,8 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { createAdvert } from '../../redux/adverts-redux/operations';
+import './AdvertForm.scss';
+
 
 const advertSchema = Yup.object().shape({
   compatibility: Yup.string().required('Це поле обов\'язкове'),
@@ -63,7 +65,7 @@ const AdvertForm = () => {
   const validateFiles = (files) => {
     if (!files.length) return 'Має бути хоча б одне фото';
     for (let file of files) {
-      if (!['image/jpeg', 'image/png'].includes(file.type)) {
+      if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) {
         return 'Файли мають бути у форматі JPEG, WEBP або PNG';
       }
       if (file.size > 5 * 1024 * 1024) {
@@ -77,98 +79,100 @@ const AdvertForm = () => {
 
 
   return (
-    <Formik
-      initialValues={{
-        compatibility: '',
-        state: '',
-        typeOfLamps: '',
-        isOriginal: false,
-        partNumber: '',
-        material: '',
-        typeOfGlass: '',
-        price: 0,
-        photo: [],
-        videoUrl: '',
-        description: '',
-      }}
-      validationSchema={advertSchema}
-      onSubmit={handleSubmit}
-    >
-      {({ setFieldValue }) => (
-        <Form>
-          <div>
-            <label htmlFor="compatibility">Сумісність</label>
-            <Field name="compatibility" type="text" />
-            <ErrorMessage name="compatibility" component="div" />
-          </div>
-          <div>
-            <label htmlFor="state">Стан</label>
-            <Field name="state" type="text" />
-            <ErrorMessage name="state" component="div" />
-          </div>
-          <div>
-            <label htmlFor="typeOfLamps">Тип ламп</label>
-            <Field name="typeOfLamps" type="text" />
-            <ErrorMessage name="typeOfLamps" component="div" />
-          </div>
-          <div>
-            <label htmlFor="isOriginal">Оригінальність</label>
-            <Field type="checkbox" name="isOriginal" />
-            <ErrorMessage name="isOriginal" component="div" />
-          </div>
-          <div>
-            <label htmlFor="partNumber">Номер деталі</label>
-            <Field name="partNumber" type="text" />
-            <ErrorMessage name="partNumber" component="div" />
-          </div>
-          <div>
-            <label htmlFor="material">Матеріал</label>
-            <Field name="material" type="text" />
-            <ErrorMessage name="material" component="div" />
-          </div>
-          <div>
-            <label htmlFor="typeOfGlass">Тип скла</label>
-            <Field name="typeOfGlass" type="text" />
-            <ErrorMessage name="typeOfGlass" component="div" />
-          </div>
-          <div>
-            <label htmlFor="price">Ціна</label>
-            <Field name="price" type="number" />
-            <ErrorMessage name="price" component="div" />
-          </div>
-          <div>
-            <label htmlFor="photo">Фото</label>
-            <input
-               name="photo"
-               type="file"
-               multiple
-               onChange={(event) => {
-                 const files = Array.from(event.currentTarget.files);
-                 const error = validateFiles(files);
-                 if (error) {
-                   setFieldValue("photo", []);
-                   setErrors({ photo: error });
-                 } else {
-                   setFieldValue("photo", files);
-                 }
-               }}
-             />
-            <ErrorMessage name="photo" component="div" />
-          </div>
-          <div>
-            <label htmlFor="videoUrl">Посилання на відео</label>
-            <Field name="videoUrl" type="url" />
-            <ErrorMessage name="videoUrl" component="div" />
-          </div>
-          <div>
-            <label htmlFor="description">Опис</label>
-            <Field name="description" as="textarea" />
-            <ErrorMessage name="description" component="div" />
-          </div>
-          <button type="submit">Додати оголошення</button>
-        </Form>
-      )}
-    </Formik>
+    <section className="form-container">
+      <Formik
+        initialValues={{
+          compatibility: '',
+          state: '',
+          typeOfLamps: '',
+          isOriginal: false,
+          partNumber: '',
+          material: '',
+          typeOfGlass: '',
+          price: 0,
+          photo: [],
+          videoUrl: '',
+          description: '',
+        }}
+        validationSchema={advertSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ setFieldValue, setErrors }) => (
+          <Form>
+            <div>
+              <label htmlFor="compatibility">Сумісність</label>
+              <Field name="compatibility" type="text" />
+              <ErrorMessage name="compatibility" component="div" className="error-message" />
+            </div>
+            <div>
+              <label htmlFor="state">Стан</label>
+              <Field name="state" type="text" />
+              <ErrorMessage name="state" component="div" className="error-message" />
+            </div>
+            <div>
+              <label htmlFor="typeOfLamps">Тип ламп</label>
+              <Field name="typeOfLamps" type="text" />
+              <ErrorMessage name="typeOfLamps" component="div" className="error-message" />
+            </div>
+            <div>
+              <label htmlFor="isOriginal">Оригінальність</label>
+              <Field type="checkbox" name="isOriginal" />
+              <ErrorMessage name="isOriginal" component="div" className="error-message" />
+            </div>
+            <div>
+              <label htmlFor="partNumber">Номер деталі</label>
+              <Field name="partNumber" type="text" />
+              <ErrorMessage name="partNumber" component="div" className="error-message" />
+            </div>
+            <div>
+              <label htmlFor="material">Матеріал</label>
+              <Field name="material" type="text" />
+              <ErrorMessage name="material" component="div" className="error-message" />
+            </div>
+            <div>
+              <label htmlFor="typeOfGlass">Тип скла</label>
+              <Field name="typeOfGlass" type="text" />
+              <ErrorMessage name="typeOfGlass" component="div" className="error-message" />
+            </div>
+            <div>
+              <label htmlFor="price">Ціна</label>
+              <Field name="price" type="number" />
+              <ErrorMessage name="price" component="div" className="error-message" />
+            </div>
+            <div>
+              <label htmlFor="photo">Фото</label>
+              <input
+                name="photo"
+                type="file"
+                multiple
+                onChange={(event) => {
+                  const files = Array.from(event.currentTarget.files);
+                  const error = validateFiles(files);
+                  if (error) {
+                    setFieldValue('photo', []);
+                    setErrors({ photo: error });
+                  } else {
+                    setFieldValue('photo', files);
+                  }
+                }}
+              />
+              <ErrorMessage name="photo" component="div" className="error-message" />
+            </div>
+            <div>
+              <label htmlFor="videoUrl">Посилання на відео</label>
+              <Field name="videoUrl" type="url" />
+              <ErrorMessage name="videoUrl" component="div" className="error-message" />
+            </div>
+            <div>
+              <label htmlFor="description">Опис</label>
+              <Field name="description" as="textarea" />
+              <ErrorMessage name="description" component="div" className="error-message" />
+            </div>
+            <button type="submit">Додати оголошення</button>
+          </Form>
+        )}
+      </Formik>
+    </section>
   );
 };
 

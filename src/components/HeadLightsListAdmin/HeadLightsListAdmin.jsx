@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getAdverts, useLoading, useError } from "../../redux/adverts-redux/selectors";
+import { selectAdverts, selectLoading, selectError } from "../../redux/adverts-redux/selectors";
 import { fetchAdverts, removeAdvert } from "../../redux/adverts-redux/operations";
 import Loader from "../Loader/Loader";
 import "./HeadLightsListAdmin.scss";
 
 
-const HeadLightsListAdmin = () => {
+const HeadLightsListAdmin = ({query}) => {
   const dispatch = useDispatch();
-  const adverts = useSelector(getAdverts);
-  const isLoading = useSelector(useLoading);
-  const error = useSelector(useError);
+  const adverts = useSelector(selectAdverts);
+  const isLoading = useSelector(selectLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchAdverts());
@@ -21,11 +21,14 @@ const HeadLightsListAdmin = () => {
     dispatch(removeAdvert(id));
   };
 
+  
+  
   if (isLoading) {
     return <Loader />;
   }
 
   return (
+    <section>
     <div className="headlights">
       {error && <p className="error">{error}</p>}
       {adverts.length === 0 ? (
@@ -51,6 +54,7 @@ const HeadLightsListAdmin = () => {
         </ul>
       )}
     </div>
+    </section>
   );
 };
 

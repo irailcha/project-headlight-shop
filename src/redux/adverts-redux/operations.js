@@ -43,7 +43,7 @@ export const removeAdvert = createAsyncThunk(
   'adverts/removeAdvert',
   async (advertData, { rejectWithValue }) => {
     try {
-      const response = await axios.delete(`https://backend-headlight-shop.vercel.app/api/adverts/${advertData}`);
+     await axios.delete(`https://backend-headlight-shop.vercel.app/api/adverts/${advertData}`);
       return { status: 'deleted', id: advertData }; 
     } catch (error) {
       return rejectWithValue(error.response?.data?.message || error.message);
