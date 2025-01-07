@@ -17,12 +17,6 @@ const Layout = () => {
       <li>
         <NavLink to="/store">Магазин</NavLink>
       </li>
-      <li>
-        <NavLink to="/profile">Профіль</NavLink>
-      </li>
-      <li>
-        <NavLink to="/admin"> Admin</NavLink>
-      </li>
       </ul>
     </header>
       <main>
