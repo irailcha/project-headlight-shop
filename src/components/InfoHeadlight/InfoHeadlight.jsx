@@ -8,6 +8,7 @@ import SimpleLightBox from '../SimpleLighBox/SimpleLightBox';
 import Loader from '../Loader/Loader';
 import ChatForm from '../ChatForm/ChatForm';
 
+
 const InfoHeadlight = () => {
   const dispatch = useDispatch();
   const { advertId } = useParams();

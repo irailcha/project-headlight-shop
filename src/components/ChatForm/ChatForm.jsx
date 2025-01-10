@@ -1,21 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from "formik";
 import { sendMessage } from "../../redux/message-redux/operations";
-import * as Yup from 'yup';
-import './ChatForm.scss';
+import * as Yup from "yup";
+import "./ChatForm.scss";
 import { IoMdClose } from "react-icons/io";
 import { RiSendPlaneFill } from "react-icons/ri";
+import Alert from "@mui/material/Alert";
 
 const chatSchema = Yup.object().shape({
   phone: Yup.string()
-    .matches(/^\+380\d{9}$/, 'Невірний формат номера телефону')
-    .required('Це поле обов\'язкове'),
-  message: Yup.string().required('Це поле обов\'язкове'),
+    .matches(/^\+380\d{9}$/, "Невірний формат номера телефону")
+    .required("Це поле обов'язкове"),
+  message: Yup.string().required("Це поле обов'язкове"),
 });
 
 const ChatForm = ({ onClose, advertId }) => {
   const dispatch = useDispatch();
+  const [showSuccess, setShowSuccess] = useState(false);
 
   return (
     <div className="chat-modal">
@@ -24,17 +26,33 @@ const ChatForm = ({ onClose, advertId }) => {
       </button>
       <Formik
         initialValues={{
-          phone: '',
-          message: '',
+          phone: "",
+          message: "",
         }}
         validationSchema={chatSchema}
-        onSubmit={(values, { resetForm }) => {
-          dispatch(sendMessage({ advertId, ...values }));
-          resetForm();
+        onSubmit={async (values, { resetForm }) => {
+          try {
+            await dispatch(sendMessage({ advertId, ...values }));
+            resetForm();
+            setShowSuccess(true); // Показуємо сповіщення
+            setTimeout(() => setShowSuccess(false), 3000); // Ховаємо через 3 секунди
+          } catch (error) {
+            console.error("Помилка при відправленні повідомлення:", error);
+          }
         }}
       >
-        {() => (
+        {({ isSubmitting }) => (
           <Form id="chatForm" className="chatForm">
+            {showSuccess && (
+              <Alert
+                icon={<RiSendPlaneFill fontSize="inherit" />}
+                severity="success"
+                className="success-alert"
+              >
+                Повідомлення успішно відправлено!
+                Протягом декількох хвилин з Вами зв'яжеться наш спеціаліст!
+              </Alert>
+            )}
             <div>
               <label htmlFor="phone">Ваш номер телефону:</label>
               <Field
@@ -57,8 +75,8 @@ const ChatForm = ({ onClose, advertId }) => {
               />
               <ErrorMessage name="message" component="div" className="error-message" />
             </div>
-            <button type="submit" className="chatForm__send">
-              Відправити <RiSendPlaneFill />
+            <button type="submit" className="chatForm__send" disabled={isSubmitting}>
+              {isSubmitting ? "Відправлення..." : "Відправити"} <RiSendPlaneFill />
             </button>
           </Form>
         )}
@@ -68,4 +86,3 @@ const ChatForm = ({ onClose, advertId }) => {
 };
 
 export default ChatForm;
-
