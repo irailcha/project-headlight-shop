@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { getOneAdvert } from '../../redux/adverts-redux/operations';
 import { useParams } from 'react-router-dom';
 import { selectAdvert } from '../../redux/adverts-redux/selectors';
@@ -6,20 +6,40 @@ import { useDispatch, useSelector } from 'react-redux';
 import './InfoHeadlight.scss';
 import SimpleLightBox from '../SimpleLighBox/SimpleLightBox';
 import Loader from '../Loader/Loader';
+import ChatForm from '../ChatForm/ChatForm';
 
 const InfoHeadlight = () => {
   const dispatch = useDispatch();
   const { advertId } = useParams();
   const advert = useSelector(selectAdvert);
+  const [isModalOpen, setIsModalOpen]=useState(false);
+  const [modalPosition, setModalPosition] = useState(null);
+  const buttonRef = useRef(null);
+
+const handleModalOpen = () => {
+  if (buttonRef.current) {
+    const rect = buttonRef.current.getBoundingClientRect();
+    setModalPosition({
+      top: rect.bottom, 
+      left: rect.left, 
+      width: rect.width, 
+    });
+  }
+  setIsModalOpen((prevState) => !prevState);
+}
 
   useEffect(() => {
     dispatch(getOneAdvert(advertId));
   }, [dispatch, advertId]);
 
   if (!advert) {
-    return <p><Loader/></p>;
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
   }
-
+  
   const {
     compatibility,
     state,
@@ -56,7 +76,10 @@ const InfoHeadlight = () => {
         <p>{description}</p>
         <div className='info__buttons'>
         <button className="info__buttons-order">Замовити</button>
-        <button className="info__buttons-ask">Є питання?</button>
+        <button onClick={handleModalOpen} className="info__buttons-ask" ref={buttonRef}>Є питання?</button>
+        {isModalOpen &&
+  <ChatForm onClose={handleModalOpen} position={modalPosition} advertId={advertId}/> 
+}
         </div>
       </div>
     </section>

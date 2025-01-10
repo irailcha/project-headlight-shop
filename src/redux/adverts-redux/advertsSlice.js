@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAdverts, createAdvert, removeAdvert, getOneAdvert } from "./operations";
+import { fetchAdverts, getOneAdvert} from "./operations";
 
 
 const advertsSlice=createSlice({
@@ -41,24 +41,6 @@ const advertsSlice=createSlice({
       state.loading = false;
       state.error = action.payload || "Failed to fetch advert"; 
     })
-    .addCase(createAdvert.fulfilled, (state, action) => {
-      state.loading = false;
-      if (action.payload.message) {
-        state.error = action.payload.message;
-      } else {
-        state.adverts = [...state.adverts, action.payload];
-      }
-    })
-    .addCase(removeAdvert.fulfilled, (state, action) => {
-      state.loading = false;
-      if (action.payload.message) {
-        state.error = action.payload.message;
-      } else {
-        state.adverts = state.adverts.filter(advert => advert._id!== action.payload);
-      }
-    })
-  
-    
   }
 })
 

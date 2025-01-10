@@ -29,26 +29,3 @@ try {
 
 
 
-
-export const createAdvert = createAsyncThunk('adverts/createAdvert', async (advertData) => {
-  try {
-    const response = await axios.post('https://backend-headlight-shop.vercel.app/api/adverts', advertData);
-    return response.data;
-  } catch (error) {
-    throw new Error(error.response?.data?.message || error.message);
-  }
-});
-
-export const removeAdvert = createAsyncThunk(
-  'adverts/removeAdvert',
-  async (advertData, { rejectWithValue }) => {
-    try {
-     await axios.delete(`https://backend-headlight-shop.vercel.app/api/adverts/${advertData}`);
-      return { status: 'deleted', id: advertData }; 
-    } catch (error) {
-      return rejectWithValue(error.response?.data?.message || error.message);
-    }
-  }
-);
-
-

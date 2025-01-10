@@ -2,6 +2,8 @@ import { Outlet, NavLink } from 'react-router-dom';
 import { Suspense } from 'react';
 import './Layout.scss';
 import logo from '../../assets/images/logo.png';
+import { TiMessages } from "react-icons/ti";
+
 
 const Layout = () => {
   return (
@@ -16,6 +18,9 @@ const Layout = () => {
       </li>
       <li>
         <NavLink to="/store">Магазин</NavLink>
+      </li>
+      <li>
+        <NavLink to="/messages"><TiMessages /></NavLink>
       </li>
       </ul>
     </header>
