@@ -13,10 +13,10 @@
 
 &__item{
   display: flex;
-  flex-direction: row;
-  align-items: center ;
+  flex-direction: column;
+  align-items: center;
   gap: 10px;
-  justify-content: start;
+  
   width: 100%;
   background-color: $grey-color;
   padding: 10px;
@@ -25,14 +25,38 @@
   box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.7);
   transition: transform 0.3s ease;
 
+  @media (min-width: 576px){
+    flex-direction: row;
+    justify-content: space-around;
 
-  @media (max-width: 768px){
-    flex-direction: column;
   }
+  @media (min-width: 992px){
+ 
+    justify-content: space-between;
+  }
+
+}
+
+&__block-descr{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 450px;
+
+  @media (min-width: 992px){
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 20px;
+  max-width: 1400px;
+  }
+
 }
 
 &__img-thumb{
-  width: 250px;
+  max-width: 300px;
   height: 200px;
   border-radius: 8px;
   background-color: $background-color;
@@ -45,9 +69,25 @@
 border-radius: 8px;
 }
 
+&__compatibility{
+  width: 100%;
+  max-width: 300px; 
+  margin: 0 auto;
+  text-align: start; 
+}
+
+&__partNumber{
+  width: 100%;
+  max-width: 250px; 
+  font-size: 18px;
+  font-weight: bold;
+}
+
 &__price{
   font-size: 24px;
   font-weight: bold;
+  width: 100%;
+  max-width: 250px; 
 
 }
 
@@ -61,6 +101,8 @@ border-radius: 8px;
       font-size: 16px;
       font-weight: 500;
       transition: background-color 0.3s ease;
+      width: 100%;
+      max-width: 200px;
       &:hover {
         background-color:$black-color;
       }
@@ -71,8 +113,4 @@ border-radius: 8px;
     }
 }
 
-.block {
-  max-width: 300px; 
-  margin: 0 auto;
-  text-align: start; 
-}
+

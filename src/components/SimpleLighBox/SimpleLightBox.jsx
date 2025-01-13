@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import './SimpleLightBox.scss';
 
 const SimpleLightBox = ({ photo }) => {
+  const galleryRef = useRef(null);
+
   useEffect(() => {
     const lightbox = new SimpleLightbox('.gallery a', {
       captions: true,
@@ -46,13 +48,20 @@ const SimpleLightBox = ({ photo }) => {
     };
   }, []);
 
+
   const getImageUrl = (baseUrl, width) => {
     return baseUrl.replace('/upload/', `/upload/w_${width}/`);
   };
 
   const isMobile = window.innerWidth <= 768;
 
-  // Перевірка та фільтрація фото
+  const scrollGallery = (direction) => {
+    if (galleryRef.current) {
+      const scrollAmount = direction === 'left' ? -300 : 300;
+      galleryRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
   const validPhotos = Array.isArray(photo) ? photo.filter(item => typeof item === 'string' && item.trim() !== '') : [];
 
   if (validPhotos.length === 0) {
@@ -60,13 +69,15 @@ const SimpleLightBox = ({ photo }) => {
   }
 
   return (
-        <ul className="gallery">
+  <div className='gallery-container'>
+     <button className="gallery-button left" onClick={() => scrollGallery('left')}>&lt;</button>
+     <ul className="gallery" ref={galleryRef}>
           {validPhotos.map((item, index) => (
             <li className="gallery__item" key={index}>
-              <a href={getImageUrl(item, isMobile ? 300 : 1200)}>
+              <a href={getImageUrl(item, isMobile ? 1000 : 1200)}>
                 <img
                 className="gallery__img"
-                  src={getImageUrl(item, isMobile ? 100 : 165)}
+                  src={getImageUrl(item, isMobile ? 100 : 160)}
                   alt={`Фото ${index + 1}`}
                   loading="lazy"
                 />
@@ -74,7 +85,8 @@ const SimpleLightBox = ({ photo }) => {
             </li>
           ))}
         </ul>
-
+        <button className="gallery-button right" onClick={() => scrollGallery('right')}>&gt;</button>
+  </div>
 
   );
 };

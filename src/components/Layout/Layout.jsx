@@ -10,7 +10,7 @@ const Layout = () => {
     <div>
     <header className='header'>
       <a className='logo'>
-        <img src={logo} alt='Logo' width={100}/>
+        <img src={logo} alt='Logo' width={80}/>
       </a>
       <ul className='header__menu'>
       <li>

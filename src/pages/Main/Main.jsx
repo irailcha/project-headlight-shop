@@ -7,7 +7,7 @@ const Main=()=>{
 
 
   return(
-  <div>
+  <div className="main-page">
     <MainPoster/>
     <Content/>
   </div>

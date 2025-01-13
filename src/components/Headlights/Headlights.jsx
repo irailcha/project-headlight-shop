@@ -38,10 +38,12 @@ const filteredAdverts = adverts.filter((advert)=> advert.compatibility.toLowerCa
                 <img className="headlights__img" 
                 src={advert.photo[0]} alt={`photo of ${advert.compatibility}`} loading="lazy" width={250} />
               </div>
-              <p className="headlights__compatibility block">{advert.compatibility}</p>
-              <p className="headlights__partNumber block"><strong>Номер деталі:</strong> {advert.partNumber}</p>
-              <p className="headlights__price block">{advert.price} грн </p>
-              <Link className="headlights__button block" to={advert._id}>Детальніше</Link>
+              <div className="headlights__block-descr">
+              <p className="headlights__compatibility">{advert.compatibility}</p>
+              <p className="headlights__partNumber"><strong>Номер деталі:</strong> {advert.partNumber}</p>
+              <p className="headlights__price">{advert.price} грн </p>
+              <Link className="headlights__button" to={advert._id}>Детальніше</Link>
+              </div>
             </li>
           ))}
         </ul>

@@ -2,10 +2,11 @@
 
 .content {
   display: flex;
-  flex-direction: column; /* Для мобільних пристроїв */
+  flex-direction: row; 
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px; /* Відстань між елементами */
+  gap: 20px; 
 
   &__thumb {
     position: relative;
@@ -13,8 +14,8 @@
     flex-direction: column;
     align-items: center;
     background-color: $background-section;
-    width: 200px; /* Зменшена ширина для мобільних */
-    height: 200px; /* Зменшена висота для мобільних */
+    width: 155px; 
+    height: 155px;
     border: none;
     border-radius: 12px;
   }
@@ -52,15 +53,6 @@
 
   /* Адаптивність для планшетів */
   @media (min-width: 576px) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-
-    &__thumb {
-      width: 220px;
-      height: 220px;
-    }
-
     &__label {
       font-size: 1.6em;
     }
@@ -68,11 +60,10 @@
 
   /* Адаптивність для середніх екранів */
   @media (min-width: 768px) {
-    gap: 30px;
-
+    flex-wrap: nowrap;
     &__thumb {
-      width: 250px;
-      height: 250px;
+      width: 180px;
+      height: 180px;
     }
 
     &__label {
@@ -80,7 +71,6 @@
     }
   }
 
-  /* Адаптивність для великих екранів */
   @media (min-width: 992px) {
     gap: 40px;
 

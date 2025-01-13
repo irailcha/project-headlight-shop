@@ -63,7 +63,9 @@ const handleModalOpen = () => {
         <div className="info__first-section__thumb-img">
         {photo[0] && <img src={photo[0]} className='info__first-section__main-img' alt="Головне фото" width='100%' />}
         </div>
+        
        <SimpleLightBox photo={photo}/>
+   
       </div>
       <div className="info__second-section">
         <h2>{compatibility}</h2>

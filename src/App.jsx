@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
+const About=React.lazy(() => import('./pages/About/About'));
 const Messages=React.lazy(() => import('./pages/Messages/Messages'));
 const Main=React.lazy(() => import('./pages/Main/Main'));
 const Store=React.lazy(() => import('./pages/Store/Store'));
@@ -15,6 +16,7 @@ const App=()=>{
         <Route path="/store" element={<Store />} />
         <Route path="/store/:advertId" element={<InfoHeadlight/>}/>
         <Route path="/messages" element={<Messages />} />
+        <Route path="/about" element={<About/>} />
         <Route path='*' element={<h1>404 Not Found</h1>} />
         </Route>
       </Routes>

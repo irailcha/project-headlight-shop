@@ -25,6 +25,7 @@ const Content = () => {
   const links = [
     {
       to: "/about",
+      
       label: "Про нас",
       jpgSmall: design_1_jpg_small,
       jpgLarge: design_1_jpg_large,
@@ -67,6 +68,7 @@ const Content = () => {
                 type="image/webp"
                 media="(max-width: 768px)"
                 srcSet={link.webpSmall}
+                
               />
               <source
                 type="image/webp"

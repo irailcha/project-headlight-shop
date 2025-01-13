@@ -17,19 +17,23 @@
     gap: 30px;
 
     &__thumb-img {
-      width: 700px;
-      height: 520px;
+      max-width: 700px;
+      height: auto;
       background-color: $black-color;
       border-radius: 12px;
       box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.7);
+
+
+
     }
 
     &__main-img {
       border-radius: 12px;
       width: 100%;
-      height: 520px;
       object-fit: cover;
     }
+
+
   }
 
   &__second-section {
