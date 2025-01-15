@@ -1,6 +1,10 @@
 @use '../../styles/variables.scss' as *;
 @use '../../styles/mixins.scss' as *;
 
+.info-section{
+  margin: 60px 0;
+}
+
 .info {
   background-color: $grey-color;
   display: flex;
@@ -8,7 +12,8 @@
   width: 100%;
   padding: 30px 60px;
   gap: 50px;
-  margin-top: 110px;
+  margin-top: 30px;
+
 
   &__first-section {
     display: flex;
@@ -100,6 +105,7 @@
     display: flex;
     flex-direction: column-reverse;
     padding: 20px;
+    margin-top: 15px;
   }
 
   .info__first-section {
