@@ -16,7 +16,6 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  
   width: 100%;
   background-color: $grey-color;
   padding: 10px;
@@ -56,10 +55,16 @@
 }
 
 &__img-thumb{
-  max-width: 300px;
+  width:200px;
   height: 200px;
   border-radius: 8px;
   background-color: $background-color;
+
+
+  @media (min-width: 576px){
+    width: 300px;
+  }
+  
 }
 
 &__img{
@@ -73,7 +78,6 @@ border-radius: 8px;
   width: 100%;
   max-width: 300px; 
   margin: 0 auto;
-  text-align: start; 
 }
 
 &__partNumber{

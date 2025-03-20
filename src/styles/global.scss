@@ -216,3 +216,30 @@ h3 {
   }
 }
 
+main{
+  margin-top: 90px;
+}
+
+.btn-back{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: $background-section;
+
+  &__icon{
+    fill: $white-color;
+    width: 18px;
+    height: 18px;
+  }
+
+  &__text{
+    font-size: 16px;
+    font-weight: 500;
+    color: $white-color;
+  }
+
+  &:hover{
+    color: $white-color;
+  }
+ 
+}

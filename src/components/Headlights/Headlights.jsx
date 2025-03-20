@@ -41,8 +41,8 @@ advert.model.toLowerCase().includes(query.toLowerCase())
                 src={advert.photo[0]} alt={`photo of ${advert.mark}`} loading="lazy" width={250} />
               </div>
               <div className="headlights__block-descr">
-              <p className="headlights__compatibility">{advert.mark}{" "}{advert.model}</p>
-              <p className="headlights__partNumber"><strong>Номер деталі:</strong> {advert.partNumber}</p>
+              <p className="headlights__compatibility">{advert.mark}<br/>{advert.model}<br/>{advert.year}</p>
+              <p className="headlights__partNumber"><strong>Номер деталі:</strong> <br/> {advert.partNumber}</p>
               <p className="headlights__price">{advert.price} грн </p>
               <Link className="headlights__button" to={advert._id}>Детальніше</Link>
               </div>

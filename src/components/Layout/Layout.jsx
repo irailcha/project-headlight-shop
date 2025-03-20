@@ -1,28 +1,25 @@
-import { Outlet, NavLink } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import { Suspense } from 'react';
 import './Layout.scss';
 import logo from '../../assets/images/logo.png';
-import { TiMessages } from "react-icons/ti";
+import {FaPhoneAlt } from 'react-icons/fa';
+import Footer from '../Footer/Footer';
 
 
 const Layout = () => {
   return (
     <div>
     <header className='header'>
-      <a className='logo'>
-        <img src={logo} alt='Logo' width={80}/>
-      </a>
-      <ul className='header__menu'>
-      <li>
-        <NavLink to="/" end>Головна</NavLink>
-      </li>
-      <li>
-        <NavLink to="/store">Магазин</NavLink>
-      </li>
-      <li>
-        <NavLink to="/messages"><TiMessages /></NavLink>
-      </li>
-      </ul>
+<Link to="/" className="logo">
+  <img src={logo} alt="Logo" width={100} />
+</Link>
+         <ul className='header__contacts'>
+              <li><a href="tel:+380632327368" aria-label="Подзвонити по номеру +380632327368"
+              className='header__contacts-item'><FaPhoneAlt /> +380632327368</a></li>
+              <li><a href="tel:+380970019526" aria-label="Подзвонити по номеру +380970019526"
+              className='header__contacts-item'><FaPhoneAlt /> +380970019526</a></li>
+            </ul>
+      
     </header>
       <main>
       <Suspense fallback={<p>Loading....</p>}>
@@ -30,7 +27,7 @@ const Layout = () => {
         </Suspense>
       </main>
       <footer>
-        {/* Футер */}
+       <Footer/>
       </footer>
     </div>
   );

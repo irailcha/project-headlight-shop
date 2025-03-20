@@ -21,7 +21,7 @@ const SearchForm=({onSearch})=>{
       onChange={handleChange}
       value={searchValue} 
       type="text" 
-      placeholder="Що шукаєте?"/>
+      placeholder="Введіть марку, модель автомобіля або номер запчастини"/>
     </div>
   )
 }

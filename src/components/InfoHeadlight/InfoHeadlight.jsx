@@ -45,6 +45,7 @@ const handleModalOpen = () => {
   const {
     mark,
     model,
+    year,
     state,
     typeOfLamps,
     side,
@@ -71,7 +72,7 @@ const handleModalOpen = () => {
    
       </div>
       <div className="info__second-section">
-        <h2>{mark} {model}</h2>
+        <h2>{mark} {model}<br/> {year}</h2>
         <h3><strong className='info__second-section-title'>Номер деталі:</strong> {partNumber}</h3>
         <p className="info__second-section-price">{price} грн</p>
         <p><strong className='info__second-section-title'>Стан:</strong>  {state}</p>

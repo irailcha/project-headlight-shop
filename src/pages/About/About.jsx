@@ -8,10 +8,10 @@ const About = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="about">
+    <div className="about">
     <button className="btn-back" onClick={()=> navigate('/')}><IoChevronBackSharp /> Hа головну</button>
       
-          <h1 className="about-title">Про нас</h1>
+          <h1 className="about__title">Про нас</h1>
           <div className="about-container">
 
           <div className="about-container-first">
@@ -35,7 +35,7 @@ const About = () => {
 
          
           </div>
-          <img src={image} alt="emploee" width={350}/>
+          <img className="emploee" src={image} alt="emploee" width={350}/>
           </div>
           </div>
         <div className="about-container-second">
@@ -56,7 +56,7 @@ const About = () => {
           </div>
         </div>
       {/* </div> */}
-    </section>
+    </div>
   );
 };
 

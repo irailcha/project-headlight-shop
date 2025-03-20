@@ -41,8 +41,8 @@ const Content = () => {
       webpLarge: design_2_webp_large,
     },
     {
-      to: "/contacts",
-      label: "Контакти",
+      to: "/helper",
+      label: "Довідник",
       jpgSmall: design_3_jpg_small,
       jpgLarge: design_3_jpg_large,
       webpSmall: design_3_webp_small,
