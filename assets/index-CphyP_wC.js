@@ -1,0 +1,1 @@
+import{G as r}from"./index-B5G5Anl6.js";function o(t){return r({attr:{viewBox:"0 0 512 512"},child:[{tag:"path",attr:{fill:"none",strokeLinecap:"square",strokeMiterlimit:"10",strokeWidth:"48",d:"M328 112 184 256l144 144"},child:[]}]})(t)}export{o as I};
