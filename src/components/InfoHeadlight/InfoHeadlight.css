@@ -1,0 +1,106 @@
+.info-section {
+  margin: 60px 0;
+}
+
+.info {
+  background-color: #adb5bd;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 30px 60px;
+  gap: 50px;
+  margin-top: 30px;
+}
+.info__first-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 30px;
+}
+.info__first-section__thumb-img {
+  max-width: 700px;
+  height: auto;
+  background-color: #212529;
+  border-radius: 12px;
+  box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.7);
+}
+.info__first-section__main-img {
+  border-radius: 12px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.info__second-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-around;
+}
+.info__second-section-title {
+  font-weight: bold;
+}
+.info__second-section-price {
+  font-size: 28px;
+  font-weight: bold;
+}
+.info__buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.info__buttons-order {
+  background-color: #0d1b2a;
+  color: #f8f9fa;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+.info__buttons-order:hover {
+  background-color: #212529;
+}
+@media (max-width: 768px) {
+  .info__buttons-order {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+}
+.info__buttons-ask {
+  position: relative;
+  background-color: transparent;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+.info__buttons-ask:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .info {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 20px;
+    margin-top: 15px;
+  }
+  .info__first-section {
+    gap: 20px;
+  }
+  .info__second-section {
+    align-items: center;
+    text-align: center;
+  }
+  .info__second-section h2, .info__second-section h3, .info__second-section p {
+    text-align: center;
+  }
+  .info__second-section__button {
+    width: 100%;
+  }
+}/*# sourceMappingURL=InfoHeadlight.css.map */

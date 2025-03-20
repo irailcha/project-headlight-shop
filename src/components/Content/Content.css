@@ -1,0 +1,79 @@
+@charset "UTF-8";
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  /* Адаптивність для планшетів */
+  /* Адаптивність для середніх екранів */
+}
+.content__thumb {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #495057;
+  width: 155px;
+  height: 155px;
+  border: none;
+  border-radius: 12px;
+}
+.content__label {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+  padding: 5px 0;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #f8f9fa;
+  font-size: 1.4em; /* Зменшений розмір шрифту для мобільних */
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+.content__label:hover {
+  text-decoration: underline;
+  color: #dee2e6;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.content__img {
+  border-radius: 12px;
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 576px) {
+  .content__label {
+    font-size: 1.6em;
+  }
+}
+@media (min-width: 768px) {
+  .content {
+    flex-wrap: nowrap;
+  }
+  .content__thumb {
+    width: 180px;
+    height: 180px;
+  }
+  .content__label {
+    font-size: 2em;
+  }
+}
+@media (min-width: 992px) {
+  .content {
+    gap: 40px;
+  }
+  .content__thumb {
+    width: 300px;
+    height: 300px;
+  }
+  .content__label {
+    font-size: 2.4em;
+  }
+}/*# sourceMappingURL=Content.css.map */

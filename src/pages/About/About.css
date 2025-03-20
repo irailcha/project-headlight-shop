@@ -1,0 +1,153 @@
+.about {
+  margin: 60px 0 0 15px;
+}
+.about__title {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #dee2e6;
+  text-align: center;
+}
+@media (min-width: 576px) {
+  .about__title {
+    font-size: 1.75rem;
+  }
+}
+@media (min-width: 576px) {
+  .about__title {
+    font-size: 2rem;
+  }
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px;
+}
+@media (min-width: 768px) {
+  .about-container {
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+.about-container-first {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10px;
+}
+@media (min-width: 768px) {
+  .about-container-first {
+    gap: 20px;
+  }
+}
+.about-container-second {
+  max-width: 400px;
+  background-color: #212529;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.7);
+}
+.about-container p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  color: #adb5bd;
+}
+.about-container ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+.about-container ul li {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #f8f9fa;
+}
+.about-container ul li ul {
+  padding-left: 20px;
+}
+.about-container ul li ul li {
+  font-size: 0.9rem;
+  color: #adb5bd;
+}
+
+@media (min-width: 576px) {
+  .about-container {
+    padding: 20px;
+    margin: 60px auto;
+    max-width: 540px;
+  }
+  p,
+  ul li {
+    font-size: 1.1rem;
+  }
+}
+@media (min-width: 768px) {
+  .about-container {
+    max-width: 1200px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  p,
+  ul li {
+    font-size: 1.2rem;
+  }
+}
+.block-1 {
+  max-width: 600px;
+  background-color: #212529;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.7);
+}
+
+.block-2 {
+  max-width: 500px;
+  flex-shrink: 2;
+  background-color: #212529;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.7);
+}
+
+.block-3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-back {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #495057;
+}
+.btn-back__icon {
+  fill: #f8f9fa;
+  width: 18px;
+  height: 18px;
+}
+.btn-back__text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #f8f9fa;
+}
+.btn-back:hover {
+  color: #f8f9fa;
+}
+
+.emploee {
+  width: 150px;
+}
+@media (min-width: 768px) {
+  .emploee {
+    width: 200px;
+  }
+}
+@media (min-width: 992px) {
+  .emploee {
+    width: 350px;
+  }
+}/*# sourceMappingURL=About.css.map */
