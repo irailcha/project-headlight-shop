@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { getOneAdvert } from '../../redux/adverts-redux/operations';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, NavLink } from 'react-router-dom';
 import { selectAdvert } from '../../redux/adverts-redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import './InfoHeadlight.scss';
@@ -81,7 +81,7 @@ const handleModalOpen = () => {
         <p><strong className='info__second-section-title'>Оригінальна деталь:</strong>  {isOriginal ? 'Так' : 'Ні'}</p>
         <p>{description}</p>
         <div className='info__buttons'>
-        <button className="info__buttons-order">Замовити</button>
+        <NavLink className="info__buttons-order"  to={"/order"}>Замовити</NavLink>
         <button onClick={handleModalOpen} className="info__buttons-ask" ref={buttonRef}>Є питання?</button>
         {isModalOpen &&
   <ChatForm onClose={handleModalOpen} position={modalPosition} advertId={advertId}/> 

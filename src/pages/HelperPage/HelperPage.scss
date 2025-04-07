@@ -1,7 +1,6 @@
 @use '../../styles/variables.scss' as *;
 
 .helper {
-  margin: 40px auto;
   max-width: $containerWidth + px;
   padding: $spacing-unit * 2;
   color: $white-color;
@@ -12,8 +11,8 @@
   &__container{
 display: flex;
 flex-wrap: wrap;
-gap: 10px;
-justify-content: space-between;
+gap: 20px;
+justify-content: center;
 
 
   }
@@ -22,17 +21,31 @@ justify-content: space-between;
     margin-bottom: $spacing-unit * 3;
     color: $white-color;
     text-align: center;
+    margin-top: 30px;
 
     @media (min-width: 576px) {
       font-size: 2.5rem;
     }
   &__description{
-    font-size: 1.25rem;
-    line-height: 1.5;
+    font-size: 0.8rem;
+    line-height: 1.2;
     margin-bottom: $spacing-unit * 3;
     color: $background-color;
     text-align: center;
     max-width: 700px;
+
+
+
+    @media(min-width: 768px) {
+      font-size: 1.25rem;
+      line-height: 1.5;
+
+    }
+
+
+
+
+
   }
 
 

@@ -1,24 +1,24 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import './Content.scss';
-import design_1_jpg_small from '../../assets/images/design_1_156.jpg';
+import design_1_jpg_small from '../../assets/images/design_1_150.jpg';
 import design_1_jpg_large from '../../assets/images/design_1_300.jpg';
-import design_1_webp_small from '../../assets/images/design_1_156.webp';
+import design_1_webp_small from '../../assets/images/design_1_150.webp';
 import design_1_webp_large from '../../assets/images/design_1_300.webp';
 
-import design_2_jpg_small from '../../assets/images/design_2_156.jpg';
+import design_2_jpg_small from '../../assets/images/design_2_150.jpg';
 import design_2_jpg_large from '../../assets/images/design_2_300.jpg';
-import design_2_webp_small from '../../assets/images/design_2_156.webp';
+import design_2_webp_small from '../../assets/images/design_2_150.webp';
 import design_2_webp_large from '../../assets/images/design_2_300.webp';
 
-import design_3_jpg_small from '../../assets/images/design_3_156.jpg';
+import design_3_jpg_small from '../../assets/images/design_3_150.jpg';
 import design_3_jpg_large from '../../assets/images/design_3_300.jpg';
-import design_3_webp_small from '../../assets/images/design_3_156.webp';
+import design_3_webp_small from '../../assets/images/design_3_150.webp';
 import design_3_webp_large from '../../assets/images/design_3_300.webp';
 
-import design_4_jpg_small from '../../assets/images/design_4_156.jpg';
+import design_4_jpg_small from '../../assets/images/design_4_150.jpg';
 import design_4_jpg_large from '../../assets/images/design_4_300.jpg';
-import design_4_webp_small from '../../assets/images/design_4_156.webp';
+import design_4_webp_small from '../../assets/images/design_4_150.webp';
 import design_4_webp_large from '../../assets/images/design_4_300.webp';
 
 const Content = () => {
@@ -63,6 +63,7 @@ const Content = () => {
       <ul className="content">
         {links.map((link, index) => (
           <li key={index} className="content__thumb">
+                        <NavLink to={link.to}>
             <picture>
               <source
                 type="image/webp"
@@ -89,11 +90,14 @@ const Content = () => {
                 className="content__img"
                 src={link.jpgSmall} 
                 alt={link.label}
-                width={250}
+                 width={300}  
+                  height={300}
+                  area={link.label} 
               />
             </picture>
-            <NavLink className="content__label" to={link.to}>
-              {link.label}
+              <h3 className="content__label" >
+                {link.label}
+                </h3>
             </NavLink>
           </li>
         ))}

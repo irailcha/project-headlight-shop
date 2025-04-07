@@ -22,7 +22,7 @@
   text-decoration: none;
   text-transform: uppercase;
   color: #0d1b2a;
-  font-size: 1.4em;
+  font-size: 1em;
   text-shadow: 0 0 15px rgba(150, 146, 146, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
   cursor: pointer;
 }
@@ -30,4 +30,14 @@
   text-decoration: underline;
   color: #dee2e6;
   background-color: rgba(0, 0, 0, 0.7);
+}
+@media (max-width: 370px) {
+  .headlight-list {
+    flex-direction: column;
+  }
+}
+@media (min-width: 768px) {
+  .headlight-list {
+    font-size: 1.4em;
+  }
 }/*# sourceMappingURL=HeadlightList.css.map */

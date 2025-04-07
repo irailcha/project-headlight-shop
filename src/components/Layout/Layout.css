@@ -1,6 +1,4 @@
 .header {
-  position: absolute;
-  top: 0;
   background-color: transparent;
   display: flex;
   align-items: center;
@@ -18,13 +16,6 @@
     padding: 0 20px;
   }
 }
-.header__menu {
-  display: flex;
-  gap: 20px;
-  justify-content: end;
-  color: #f8f9fa;
-  text-transform: uppercase;
-}
 .header__contacts {
   display: flex;
   flex-direction: column;
@@ -41,8 +32,8 @@
   gap: 8px;
   color: #dee2e6;
   text-decoration: none;
-  font-size: 12px;
-  padding: 8px;
+  font-size: 16px;
+  padding: 4px;
 }
 .header__contacts-item svg {
   width: 12px;
@@ -53,5 +44,5 @@
 }
 
 .logo {
-  border: 100px;
+  border: 150px;
 }/*# sourceMappingURL=Layout.css.map */

@@ -10,11 +10,11 @@ const Xenon=React.lazy(()=> import('./components/HelpInfo/Xenon'))
 const Led=React.lazy(()=> import('./components/HelpInfo/Led'))
 const Laser=React.lazy(()=> import('./components/HelpInfo/Laser'))
 const About=React.lazy(() => import('./pages/About/About'));
-const Messages=React.lazy(() => import('./pages/Messages/Messages'));
 const Main=React.lazy(() => import('./pages/Main/Main'));
 const Store=React.lazy(() => import('./pages/Store/Store'));
 const Reviews=React.lazy(() => import('./pages/Reviews/Reviews'));
-const InfoHeadlight=React.lazy(() => import('./components/InfoHeadlight/InfoHeadlight'));
+const InfoHeadlight = React.lazy(() => import('./components/InfoHeadlight/InfoHeadlight'));
+const OrderPage=React.lazy(() => import('./components/OrderPage/OrderPage'));
 const App=()=>{
 
   return (
@@ -23,8 +23,8 @@ const App=()=>{
       <Route path="/" element={<Layout />}>
         <Route index element={<Main />} />
         <Route path="/store" element={<Store />} />
-        <Route path="/store/:advertId" element={<InfoHeadlight/>}/>
-        <Route path="/messages" element={<Messages />} />
+        <Route path="/store/:advertId" element={<InfoHeadlight />} />
+        <Route path="/order" element={<OrderPage/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/helper" element={<HelperPage/>} />
         <Route path="/reviews" element={<Reviews/>} />
@@ -34,7 +34,7 @@ const App=()=>{
         <Route path='/laser' element={<Laser/>} />
         <Route path='/headlight' element={<Headlight/>} />
         <Route path='/backlight' element={<Backlights/>} />
-        <Route path='/foglight' element={<Foglights/>} />
+        <Route path='/foglight' element={<Foglights />} />
         <Route path='*' element={<h1>404 Not Found</h1>} />
         </Route>
       </Routes>

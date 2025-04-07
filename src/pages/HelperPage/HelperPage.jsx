@@ -24,10 +24,12 @@ const HelperPage = () => {
   ]
 
   return (
+    <>
+           <button className="btn-back" onClick={()=> navigate('/')}><IoChevronBackSharp /> Hа головну</button>
     <div className="helper">
-       <button className="btn-back" onClick={()=> navigate('/')}><IoChevronBackSharp /> Hа головну</button>
 
-      <h1 className="helper__title">Все про фари та освітлення для вашого автомобіля</h1>
+
+      <h2 className="helper__title">Все про фари та освітлення для вашого автомобіля</h2>
 <div className='helper__container'>
       <Section title="Види освітлення">
       <HeadlightList headlights={frontHeadlights} />
@@ -79,7 +81,8 @@ const HelperPage = () => {
 </Section>
 
       </div>
-    </div>
+      </div>
+      </>
   );
 };
 

@@ -11,7 +11,7 @@
 }
 .footer__copyright {
   text-align: center;
-  font-size: 5px;
+  font-size: 10px;
 }
 .footer__contacts {
   display: flex;
@@ -29,8 +29,8 @@
   gap: 8px;
   color: #dee2e6;
   text-decoration: none;
-  font-size: 12px;
-  padding: 8px;
+  font-size: 16px;
+  padding: 4px;
 }
 .footer__contacts-item svg {
   width: 12px;

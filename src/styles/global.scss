@@ -10,8 +10,12 @@ font-family: 'SourceSerif', sans-serif;
   background-color: $background-color;
   font-weight: 400;
   height: 100%;
-  margin: 0;
+    margin: 0;
+}
 
+main{
+
+  padding: 0 20px;
 }
 * {
   box-sizing: border-box;
@@ -178,10 +182,6 @@ html {
   scroll-behavior: smooth;
 }
 
-section{
-  padding: 30px 0;
-  
-}
 
 h1 {
   font-family: 'Oswald', sans-serif;
@@ -216,9 +216,6 @@ h3 {
   }
 }
 
-main{
-  margin-top: 90px;
-}
 
 .btn-back{
   display: flex;

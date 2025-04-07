@@ -1,8 +1,6 @@
 @use '../../styles/variables.scss' as *;
 
 .header{
-  position: absolute;
-  top: 0;
   background-color: transparent;
   display: flex;
   align-items: center;
@@ -17,23 +15,18 @@ justify-content: space-between;
     padding: 0 20px;
   }
   
-
-  
-  &__menu{
-    display: flex;
-    gap: 20px; 
-    justify-content: end;
-    color: $white-color;
-    text-transform: uppercase;
-  }
   &__contacts {
     display: flex;
     flex-direction: column;
     gap: 5px;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 10px;
     justify-content: center;
+
+      @media (min-width: 768px) {
+          padding: 20px;
+        }
   
   
   &-item {
@@ -43,8 +36,8 @@ justify-content: space-between;
     gap: 8px;
     color: $second-white-color;
     text-decoration: none;
-    font-size: 12px;
-    padding: 8px;
+    font-size: 16px;
+    padding: 4px;
   
     svg {
       width: 12px;
@@ -60,5 +53,13 @@ justify-content: space-between;
   }
 
   .logo{
-    border: 100px;
+    width: 150px;
+    padding: 10px;
+
+
+   @media (min-width: 768px){
+      padding: 20px;
+   }
+
+
   }

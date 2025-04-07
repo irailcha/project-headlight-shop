@@ -9,8 +9,8 @@
 .helper__container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  justify-content: space-between;
+  gap: 20px;
+  justify-content: center;
 }
 .helper__title {
   font-size: 2rem;
@@ -24,10 +24,16 @@
   }
 }
 .helper__title__description {
-  font-size: 1.25rem;
-  line-height: 1.5;
+  font-size: 0.8rem;
+  line-height: 1.2;
   margin-bottom: 24px;
   color: #0d1b2a;
   text-align: center;
   max-width: 700px;
+}
+@media (min-width: 768px) {
+  .helper__title__description {
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
 }/*# sourceMappingURL=HelperPage.css.map */

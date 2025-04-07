@@ -1,4 +1,5 @@
 @use './variables';
+@use 'sass:math';
 
 @mixin xsm {
   @media (max-width: 370px) {
@@ -59,7 +60,7 @@
   $widthToMedia: $widthTo + px;
 
   // Формула плаваючого значення
-  $slope: ($startSize - $minSize) / ($widthFrom - $widthTo);
+$slope: math.div($startSize - $minSize, $widthFrom - $widthTo);
   $yIntersection: -$widthTo * $slope + $minSize;
   @if ($yIntersection == 0) {
     $yIntersection: 0.000001;

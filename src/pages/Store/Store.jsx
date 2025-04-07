@@ -9,13 +9,18 @@ const Store = () => {
   const navigate = useNavigate();
 const [query, setQuery]=useState('');
   return (
+    <>
+      <button className="btn-back" onClick={()=> navigate('/')}><IoChevronBackSharp /> Hа головну</button>
     <section className="store">
-  <button className="btn-back" onClick={()=> navigate('/')}><IoChevronBackSharp /> Hа головну</button>
+
   <div className="store__block">
 <SearchForm onSearch={setQuery}/>
-</div>
-   <Headlights query={query}/>
-    </section>
+
+          <Headlights query={query} />
+
+          </div>
+      </section>
+      </>
   );
 };
 
