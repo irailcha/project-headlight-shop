@@ -8,5 +8,10 @@ export default defineConfig({
   define: {
     global: {},
   },
+   "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "destination": "https://backend-headlight-shop.vercel.app/sitemap.xml"
+    }
+  ]
 });
-
