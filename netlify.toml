@@ -1,0 +1,9 @@
+[build]
+publish = "dist"
+
+[[plugins]]
+package = "@netlify/plugin-sitemap"
+
+  [plugins.inputs]
+  buildDir = "dist"
+  filePath = "sitemap.xml"
